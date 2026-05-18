@@ -1,0 +1,22 @@
+{
+  "name": "serious-man",
+  "version": "0.1.0",
+  "description": "A production-grade developer workflow CLI",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "sm": "./dist/index.js"
+  },
+  "scripts": {
+    "dev": "bun --watch src/index.ts",
+    "build": "bun build src/index.ts --outdir dist --target bun",
+    "start": "bun src/index.ts",
+    "doctor": "bun src/index.ts doctor",
+    "check": "bun src/index.ts --help"
+  },
+  "engines": {
+    "bun": ">=1.1.0"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
