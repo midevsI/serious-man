@@ -3,10 +3,10 @@ export interface AiProvider {
   complete(prompt: string): Promise<string>;
 }
 
-export class MockAiProvider implements AiProvider {
-  name = 'mock';
+export class AnthropicMockProvider implements AiProvider {
+  name = 'anthropic';
 
   async complete(prompt: string): Promise<string> {
-    return `Mock response for: ${prompt}`;
+    return `Anthropic mock response for Claude workflow prompt: ${prompt}`;
   }
 }

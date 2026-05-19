@@ -43,7 +43,7 @@ export class CliApp {
   private printHelp(): void {
     console.log(`${this.name} - ${this.description}`);
     console.log('');
-    console.log('Usage: sm <command>');
+    console.log('Usage: ptc <command>');
     console.log('');
     console.log('Commands:');
 

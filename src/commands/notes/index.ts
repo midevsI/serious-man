@@ -1,16 +1,16 @@
 import type { CliApp } from '../../core/cli';
-import { NOTES_FILE } from '../../core/config/constants';
+import { MEMORY_FILE } from '../../core/config/constants';
 import { LocalStore } from '../../core/storage/local-store';
 import { logger } from '../../core/logger/logger';
 
-export function notesCommand(app: CliApp): void {
+export function memoryCommand(app: CliApp): void {
   app.register({
-    name: 'notes',
-    description: 'Manage developer notes (placeholder)',
+    name: 'memory',
+    description: 'Manage developer memory for Claude Code sessions',
     action: async () => {
       const store = new LocalStore();
-      const notes = await store.readJson<string[]>(NOTES_FILE, []);
-      logger.info(`Notes placeholder. Notes captured: ${notes.length}`);
+      const memoryItems = await store.readJson<string[]>(MEMORY_FILE, []);
+      logger.info(`Memory placeholder. Entries stored: ${memoryItems.length}`);
     }
   });
 }

@@ -9,8 +9,8 @@ export interface AppConfig {
 }
 
 const defaultConfig: AppConfig = {
-  aiProvider: 'openai',
-  defaultModel: 'gpt-5',
+  aiProvider: 'anthropic',
+  defaultModel: 'claude-sonnet-4-5',
   telemetry: false
 };
 

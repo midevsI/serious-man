@@ -8,7 +8,7 @@ import { CliApp } from './core/cli';
 async function main(): Promise<void> {
   loadEnv();
 
-  const app = new CliApp('serious-man', 'terminal-native developer workflow CLI', '0.1.0');
+  const app = new CliApp('Prompt to Claude (PTC)', 'Claude Code workflow CLI', '0.2.0');
   registerCommands(app);
 
   try {

@@ -12,7 +12,7 @@ dist/
 *.log
 
 # local state
-.serious-man/
+.ptc/
 
 # OS/editor
 .DS_Store

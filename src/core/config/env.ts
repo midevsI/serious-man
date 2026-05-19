@@ -17,6 +17,7 @@ export function loadEnv(): void {
 }
 
 export const env = {
-  logLevel: process.env.SM_LOG_LEVEL ?? 'info',
-  aiProvider: process.env.SM_AI_PROVIDER ?? 'openai'
+  logLevel: process.env.PTC_LOG_LEVEL ?? 'info',
+  aiProvider: process.env.PTC_AI_PROVIDER ?? 'anthropic',
+  anthropicApiKey: process.env.ANTHROPIC_API_KEY ?? ''
 };

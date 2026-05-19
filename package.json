@@ -1,11 +1,11 @@
 {
-  "name": "serious-man",
-  "version": "0.1.0",
-  "description": "A production-grade developer workflow CLI",
+  "name": "prompt-to-claude",
+  "version": "0.2.0",
+  "description": "Prompt to Claude (PTC): Claude Code workflow CLI",
   "type": "module",
   "license": "MIT",
   "bin": {
-    "sm": "./dist/index.js"
+    "ptc": "./dist/index.js"
   },
   "scripts": {
     "dev": "bun --watch src/index.ts",

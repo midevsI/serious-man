@@ -1,21 +1,21 @@
-# serious-man
+# Prompt to Claude (PTC)
 
-`serious-man` is a fast, terminal-native developer workflow CLI built with Bun + TypeScript.
+`prompt-to-claude` is a terminal-native CLI for Claude Code workflows, prompt/context infrastructure, developer memory, and repo intelligence.
 
-## Goals
+## Focus
 
-- Productivity-first terminal experience
-- AI-assisted workflow primitives
-- Repo context intelligence foundations
-- Prompt and notes management
-- Plugin-ready architecture for future expansion
+- Claude Code productivity workflows
+- Repo-aware prompting and context infrastructure
+- Developer memory management
+- Context compression and token reduction
+- Open-source-ready modular CLI architecture
 
 ## Stack
 
 - TypeScript
 - Bun runtime
-- Lightweight built-in command router (zero external deps)
-- Bun-native terminal output
+- Lightweight internal command router
+- Minimal terminal UX output for fast iteration
 
 ## Install
 
@@ -36,25 +36,24 @@ bun run start -- init
 bun run build
 ```
 
-The package is configured with a `bin` map:
+The package exposes:
 
-- `sm` -> `./dist/index.js`
+- `ptc` -> `./dist/index.js`
 
-Add more aliases later by extending the `bin` object in `package.json`.
+## Commands
 
-## Commands (initial scaffolding)
+- `ptc init`
+- `ptc context`
+- `ptc compress`
+- `ptc prompt`
+- `ptc memory`
+- `ptc doctor`
 
-- `sm init`
-- `sm context`
-- `sm prompt`
-- `sm notes`
-- `sm compress`
-- `sm doctor`
+## Environment Variables
 
-## Environment variables
-
-- `SM_LOG_LEVEL` (default: `info`)
-- `SM_AI_PROVIDER` (default: `openai`)
+- `PTC_LOG_LEVEL` (default: `info`)
+- `PTC_AI_PROVIDER` (default: `anthropic`)
+- `ANTHROPIC_API_KEY` (required for real Anthropic integration)
 
 ## Architecture
 
@@ -64,10 +63,11 @@ src/
     init/
     context/
     prompt/
-    notes/
+    notes/        # exposes the `memory` command
     compress/
     doctor/
   core/
+    cli.ts
     command-loader.ts
     config/
     storage/
@@ -79,75 +79,39 @@ src/
   utils/
 ```
 
-This keeps command orchestration, core infrastructure, services, and provider abstractions separated and maintainable.
+## Command Intent
 
----
+### `ptc context`
+Ready structure for:
+- repo analysis
+- recent file detection
+- git diff analysis hooks
+- dependency inspection hooks
+- architecture summarization
 
-## Quick tutorial: using `serious-man` effectively
+### `ptc compress`
+Ready structure for:
+- repo summarization
+- token reduction
+- context cleanup
+- Claude-ready output formatting
 
-### 1) First-time setup in a repo
+### `ptc doctor`
+Validates:
+- `git`
+- `bun`
+- `node`
+- `claude` CLI installation
+- `ANTHROPIC_API_KEY` presence
+- `.ptc` local state directory
 
-```bash
-sm init
-```
+## Quick Start
 
-What this does:
-- Creates a local `.serious-man/` folder in your current project.
-- Stores default CLI config so future commands can build on it.
+1. `ptc init`
+2. `ptc doctor`
+3. `ptc context`
+4. `ptc prompt`
+5. `ptc memory`
+6. `ptc compress`
 
-### 2) Check your environment health
-
-```bash
-sm doctor
-```
-
-Use this before deep workflow sessions. It confirms Bun version, active AI/provider env settings, and whether your `.serious-man` state directory exists.
-
-### 3) Capture and inspect context
-
-```bash
-sm context
-```
-
-Current command is a placeholder, but this is the future entrypoint for repo awareness (branch state, changed files, summaries, and work snapshots).
-
-### 4) Build a prompt workflow habit
-
-```bash
-sm prompt
-```
-
-Use this area as your future prompt library. Recommended pattern:
-- store reusable system prompts
-- version prompts by task (`review`, `refactor`, `test-plan`)
-- keep prompts short and composable
-
-### 5) Track development notes as artifacts
-
-```bash
-sm notes
-```
-
-Treat notes as lightweight project memory:
-- bug breadcrumbs
-- architectural decisions
-- next-session TODOs
-
-### 6) Compress context before sending to LLMs
-
-```bash
-sm compress
-```
-
-This command is scaffolded to become your context-compaction layer, where you can turn noisy repo state into token-efficient, high-signal prompts.
-
-## Best-practice workflow loop
-
-A practical daily loop:
-1. `sm doctor`
-2. `sm context`
-3. `sm notes`
-4. `sm prompt`
-5. `sm compress`
-
-That sequence gives you consistency: environment check -> context capture -> memory -> prompt assembly -> compact handoff to AI.
+PTC is designed to become a serious infrastructure tool for Claude Code power users.

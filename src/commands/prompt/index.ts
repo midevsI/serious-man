@@ -6,11 +6,11 @@ import { logger } from '../../core/logger/logger';
 export function promptCommand(app: CliApp): void {
   app.register({
     name: 'prompt',
-    description: 'Manage reusable prompts (placeholder)',
+    description: 'Manage Claude-focused reusable prompt assets',
     action: async () => {
       const store = new LocalStore();
       const prompts = await store.readJson<string[]>(PROMPTS_FILE, []);
-      logger.info(`Prompt library placeholder. Saved prompts: ${prompts.length}`);
+      logger.info(`Prompt library placeholder. Claude prompts saved: ${prompts.length}`);
     }
   });
 }
