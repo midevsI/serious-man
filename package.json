@@ -1,0 +1,22 @@
+{
+  "name": "prompt-to-claude",
+  "version": "0.2.0",
+  "description": "Prompt to Claude (PTC): Claude Code workflow CLI",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "ptc": "./dist/index.js"
+  },
+  "scripts": {
+    "dev": "bun --watch src/index.ts",
+    "build": "bun build src/index.ts --outdir dist --target bun",
+    "start": "bun src/index.ts",
+    "doctor": "bun src/index.ts doctor",
+    "check": "bun src/index.ts --help"
+  },
+  "engines": {
+    "bun": ">=1.1.0"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
